@@ -15,3 +15,22 @@ export type Error = {
     message: string
 
 };
+export type Session = {
+    id: number,
+    userId: number,
+    token: string;
+    }
+
+export type createBook = {
+    name: string, 
+    author: string, 
+    userId: number
+};
+
+export type Book = {
+    id: number,
+    name: string, 
+    author: string, 
+    available: boolean,
+    userId: number
+}    
