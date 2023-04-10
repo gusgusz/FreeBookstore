@@ -13,7 +13,7 @@ bookRoutes.post(
   bookControllers.create
 );
 bookRoutes.get("/",  bookControllers.findAll);
-bookRoutes.post(
+bookRoutes.put(
   "/take-book/:id",
   
   bookControllers.takeBook
@@ -23,5 +23,5 @@ bookRoutes.get(
   
   bookControllers.findAllMyBooks
 );
-
+bookRoutes.delete("/book/:id", bookControllers.deleteBook);
 export default bookRoutes;

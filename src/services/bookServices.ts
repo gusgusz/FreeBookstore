@@ -17,6 +17,14 @@ async function findAll() : Promise<Book[] | never>  {
   return rows;
 }
 
+async function delete(id : number) : <void> {
+  const book = await bookRepositories.findById(id);
+
+  if(rowCount === 0 ) throw errors.notFoundError();
+
+  await bookRepositories.delete(id);
+}
+
 async function takeBook(userId: number, bookId: number) : Promise<void> {
   const {
     rows: [book],

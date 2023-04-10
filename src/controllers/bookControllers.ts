@@ -15,6 +15,18 @@ async function create(req: Request, res: Response, next: NextFunction) : Promise
   }
 }
 
+async function deleteBook(req: Request, res: Response, next: NextFunction) : Promise<Response> {
+  const id : number = req.params.id;
+
+  try{
+    await bookServices.delete(id);
+    return res.sendStatus(200);
+  }
+  catch(err){
+    next(err);
+  }
+}
+
 async function findAll(req: Request, res: Response, next: NextFunction): Promise<Response> {
   try {
     const books : Book[] = await bookServices.findAll();

@@ -43,6 +43,17 @@ async function create({ name, author, userId } : createBook) : Promise<void>{
       [id]
     );
   }
+
+  async function deleteBook(id : number) {
+    return await connectionDb.query(
+      `
+            DELETE  books 
+            WHERE id = $1;
+        `,
+      [id]
+    );
+  }
+  
   
   async function updateStatusBook(status: boolean, bookId : number) : Promise<void> {
     await connectionDb.query<QueryResult>(
